@@ -13,6 +13,13 @@ public class UserRegistrationProblem {
 
 	}
 
+	public boolean checkEmailPattern(String email) {
+
+		return (Pattern.matches(
+				"[a-zA-z0-9]+[a-zA-Z0-9-_[+]?]*[.]?[a-zA-Z0-9-_[+]?]*@[a-zA-Z0-9]+([.][a-zA-Z]{2,}){1,2}", email));
+
+	}
+
 	public boolean validation(boolean valid) {
 
 		if (valid) {
@@ -39,7 +46,7 @@ public class UserRegistrationProblem {
 
 		UserRegistrationProblem urp = new UserRegistrationProblem();
 
-		System.out.println("Enter First Name");
+		System.out.println("Enter firstName: ");
 
 		urp.firstName = sc.nextLine();
 
@@ -47,13 +54,21 @@ public class UserRegistrationProblem {
 
 			urp.firstName = sc.nextLine();
 
-		System.out.println("Enter Last Name");
+		System.out.println("Enter Last Name: ");
 
 		urp.lastName = sc.nextLine();
 
 		while (!urp.validation(urp.checkNamePattern(urp.lastName)))
 
 			urp.lastName = sc.nextLine();
+
+		System.out.println("Enter Email ID: ");
+
+		urp.email = sc.nextLine();
+
+		while (!urp.validation(urp.checkEmailPattern(urp.email)))
+
+			urp.email = sc.nextLine();
 
 		sc.close();
 
