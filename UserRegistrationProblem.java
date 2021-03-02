@@ -4,6 +4,8 @@ import java.util.regex.Pattern;
 public class UserRegistrationProblem {
 
 	public String firstName;
+	public String lastName;
+	public String email;
 
 	public boolean checkNamePattern(String name) {
 
@@ -44,6 +46,14 @@ public class UserRegistrationProblem {
 		while (!urp.validation(urp.checkNamePattern(urp.firstName)))
 
 			urp.firstName = sc.nextLine();
+
+		System.out.println("Enter Last Name");
+
+		urp.lastName = sc.nextLine();
+
+		while (!urp.validation(urp.checkNamePattern(urp.lastName)))
+
+			urp.lastName = sc.nextLine();
 
 		sc.close();
 
