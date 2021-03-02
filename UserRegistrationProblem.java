@@ -6,6 +6,7 @@ public class UserRegistrationProblem {
 	public String firstName;
 	public String lastName;
 	public String email;
+	public String mobileNum;
 
 	public boolean checkNamePattern(String name) {
 
@@ -17,6 +18,12 @@ public class UserRegistrationProblem {
 
 		return (Pattern.matches(
 				"[a-zA-z0-9]+[a-zA-Z0-9-_[+]?]*[.]?[a-zA-Z0-9-_[+]?]*@[a-zA-Z0-9]+([.][a-zA-Z]{2,}){1,2}", email));
+
+	}
+
+	public boolean checkMobileNumPattern(String email) {
+
+		return (Pattern.matches("([0-9]{2}[ ]|0)?[6-9][0-9]{9}", email));
 
 	}
 
@@ -69,6 +76,14 @@ public class UserRegistrationProblem {
 		while (!urp.validation(urp.checkEmailPattern(urp.email)))
 
 			urp.email = sc.nextLine();
+
+		System.out.println("Enter Mobile Number: ");
+
+		urp.mobileNum = sc.nextLine();
+
+		while (!urp.validation(urp.checkMobileNumPattern(urp.mobileNum)))
+
+			urp.mobileNum = sc.nextLine();
 
 		sc.close();
 
