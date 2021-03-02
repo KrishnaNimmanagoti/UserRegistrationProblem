@@ -30,7 +30,7 @@ public class UserRegistrationProblem {
 
 	public boolean checkPasswordPattern(String email) {
 
-		return (Pattern.matches("[a-z]{8,}", email));
+		return (Pattern.matches("(?=.*[a-z])(?=.*[A-Z]).{8,}", email));
 
 	}
 
