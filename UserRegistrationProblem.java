@@ -7,6 +7,7 @@ public class UserRegistrationProblem {
 	public String lastName;
 	public String email;
 	public String mobileNum;
+	public String password;
 
 	public boolean checkNamePattern(String name) {
 
@@ -24,6 +25,12 @@ public class UserRegistrationProblem {
 	public boolean checkMobileNumPattern(String email) {
 
 		return (Pattern.matches("([0-9]{2}[ ]|0)?[6-9][0-9]{9}", email));
+
+	}
+
+	public boolean checkPasswordPattern(String email) {
+
+		return (Pattern.matches("[a-z]{8,}", email));
 
 	}
 
@@ -84,6 +91,14 @@ public class UserRegistrationProblem {
 		while (!urp.validation(urp.checkMobileNumPattern(urp.mobileNum)))
 
 			urp.mobileNum = sc.nextLine();
+
+		System.out.println("Enter Password: ");
+
+		urp.password = sc.nextLine();
+
+		while (!urp.validation(urp.checkPasswordPattern(urp.password)))
+
+			urp.password = sc.nextLine();
 
 		sc.close();
 
